@@ -1,4 +1,4 @@
-# D2 — Evaluation Summary: Base vs. Fine-Tuned
+# Evaluation Summary: Base vs. Fine-Tuned
 
 Scoring of `comparison.json` (25 prompts: 15 held-out test examples, 8 baseline prompts, 2
 general-knowledge sanity prompts). Each task-specific response was scored 1–5 on three
