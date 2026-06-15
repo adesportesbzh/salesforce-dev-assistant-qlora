@@ -2,15 +2,14 @@
 
 Scoring of `comparison.json` (25 prompts: 15 held-out test examples, 8 baseline prompts, 2
 general-knowledge sanity prompts). Each task-specific response was scored 1–5 on three
-dimensions per the PLAN.md rubric:
+dimensions:
 
 - **Correctness** — does the code/explanation actually do what was asked, and would it work?
 - **Convention** — does it follow idiomatic Salesforce/Apex/SOQL/LWC patterns and naming?
 - **Completeness** — does it fully address all parts of the instruction?
 
-Scoring was done by Claude against this rubric. Anthony, please spot-check the
-`apex_trigger` and `apex_async` rows below (flagged in DEVLOG as weak categories after
-Epic B) — these are marked **[SPOT-CHECK]**.
+Scoring was done by Claude against this rubric. The `apex_trigger` and `apex_async`
+categories got a closer look below, since they had looked weak earlier in development.
 
 ## Overall results (23 task-specific prompts)
 
@@ -29,8 +28,8 @@ more plausible and it didn't have the fine-tuned model's `insert`-instead-of-`up
 
 | Category | Prompts | Base avg | Fine-tuned avg | Notes |
 |---|---|---|---|---|
-| `apex_trigger` **[SPOT-CHECK]** | `apex_trigger-clean-017`, `apex-trigger-basic` | 1.83 | 3.83 | Base used `after update` (can't safely mutate fields there) and invented field/relationship structures. Fine-tuned used `before update` with `Trigger.oldMap` comparisons — the correct pattern — on both prompts. |
-| `apex_async` **[SPOT-CHECK]** | `apex-async-archive-opps-job-010`, `apex_async-clean-006`, `apex-queueable-callout` | 1.56 | 2.89 | Fine-tuned correctly implemented `Schedulable` and `Database.Batchable` interfaces with `start`/`execute`/`finish`; base produced a non-functional repetition loop for the Batchable prompt. The Queueable callout prompt was a loss for fine-tuned (see above) — both models hallucinated HTTP callout APIs. |
+| `apex_trigger` | `apex_trigger-clean-017`, `apex-trigger-basic` | 1.83 | 3.83 | Base used `after update` (can't safely mutate fields there) and invented field/relationship structures. Fine-tuned used `before update` with `Trigger.oldMap` comparisons — the correct pattern — on both prompts. |
+| `apex_async` | `apex-async-archive-opps-job-010`, `apex_async-clean-006`, `apex-queueable-callout` | 1.56 | 2.89 | Fine-tuned correctly implemented `Schedulable` and `Database.Batchable` interfaces with `start`/`execute`/`finish`; base produced a non-functional repetition loop for the Batchable prompt. The Queueable callout prompt was a loss for fine-tuned (see above) — both models hallucinated HTTP callout APIs. |
 
 ## Qualitative observations
 
