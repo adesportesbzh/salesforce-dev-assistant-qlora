@@ -17,7 +17,7 @@ details, and evaluation results — see [JOURNEY.md](JOURNEY.md).
 
 ## Status
 
-✅ Dataset generation, fine-tuning, and evaluation are complete. The fine-tuned model
+Dataset generation, fine-tuning, and evaluation are complete. The fine-tuned model
 shows a clear quality improvement over the base model (see [Results](#results)).
 
 ## What I practiced
