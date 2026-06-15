@@ -44,7 +44,7 @@ walk through — each step:
    `best_practices`) in [`data/gold/gold_examples.jsonl`](data/gold/gold_examples.jsonl).
 2. **Generate synthetic training data** — `src/generate_data.py` prompts a local
    Ollama model (`llama3.2`) to produce more examples per category, using the gold
-   examples as few-shot guides.
+   examples as guidelines.
 3. **Validate & clean** — `src/validate_examples.py` filters out generated examples
    with structurally invalid or anti-pattern Apex/SOQL.
 4. **Build the final dataset** — `src/build_dataset.py` combines gold + validated
@@ -60,6 +60,8 @@ walk through — each step:
    adherence, and completeness. Full breakdown:
    [`eval/results/summary.md`](eval/results/summary.md).
 
+   You will still see some mentions of my developemnt artifacts in the notebooks (ipynb files, things like C2, D2), it is not important in the execution of the notebooks.
+
 ## Results
 
 Evaluated base vs. fine-tuned `meta-llama/Llama-3.2-3B-Instruct` on 23 Apex/SOQL/LWC
@@ -67,7 +69,7 @@ prompts (15 held-out + 8 baseline), scored 1–5 on correctness, Salesforce conv
 adherence, and completeness. Full breakdown and methodology:
 [`eval/results/summary.md`](eval/results/summary.md).
 
-| | Correctness | Convention | Completeness | Overall |
+| | Correctness (would it execute?) | Convention (does it respects the language standard?) | Completeness (does it do what was asked?) | Overall (average of the 3 values) |
 |---|---|---|---|---|
 | Base model | 1.35 | 1.61 | 2.09 | 1.68 |
 | Fine-tuned model | 2.57 | 3.22 | 3.00 | **2.93** |
