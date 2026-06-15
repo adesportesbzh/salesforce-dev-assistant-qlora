@@ -12,6 +12,9 @@ generating a training set, validating it, fine-tuning a quantized model with QLo
 free Colab GPU, and proving the result with a structured before/after evaluation —
 rather than just reading about how it's done.
 
+For the detailed build log — prompt-tuning iterations, dead ends, training run
+details, and evaluation results — see [JOURNEY.md](JOURNEY.md).
+
 ## Status
 
 ✅ Dataset generation, fine-tuning, and evaluation are complete. The fine-tuned model
