@@ -1,0 +1,42 @@
+[
+  {
+    "id": "apex-trigger-basic",
+    "category": "apex_trigger",
+    "instruction": "Write an Apex trigger on the Account object that, whenever a record is updated, sets a custom field 'Last_Modified_By_Trigger__c' to the current user's name."
+  },
+  {
+    "id": "soql-relationship",
+    "category": "soql",
+    "instruction": "Write a SOQL query that retrieves all Contacts along with their related Account's Name and Industry, where the Account's AnnualRevenue is greater than 1,000,000."
+  },
+  {
+    "id": "apex-class-map",
+    "category": "apex_class",
+    "instruction": "Create an Apex class with a static method that takes a List<Id> of Opportunity Ids and returns a Map<Id, Decimal> of Opportunity Id to the total Amount of its related OpportunityLineItems."
+  },
+  {
+    "id": "validation-rule",
+    "category": "validation_rule",
+    "instruction": "Write a Salesforce validation rule formula that prevents saving an Opportunity if CloseDate is in the past and StageName is not 'Closed Won' or 'Closed Lost'."
+  },
+  {
+    "id": "apex-queueable-callout",
+    "category": "apex_async",
+    "instruction": "Write an Apex Queueable class that calls an external REST API via HTTP callout and updates a custom field 'Sync_Status__c' on the originating record with the response status code."
+  },
+  {
+    "id": "lwc-apex-search",
+    "category": "lwc",
+    "instruction": "Create a Lightning Web Component with a search input that calls an imperative Apex method `searchAccounts(String searchTerm)` and displays the returned Account names in a list."
+  },
+  {
+    "id": "apex-test-class",
+    "category": "apex_test",
+    "instruction": "Write an Apex test class (@isTest) for a trigger that sets Contact.Description when its related Account is updated. Include a positive test (Account updated) and a negative test (no related Contacts)."
+  },
+  {
+    "id": "bulkify-trigger",
+    "category": "best_practices",
+    "instruction": "Explain what bulkification means in Apex, then rewrite this non-bulkified trigger to be bulk-safe:\n\ntrigger UpdateContacts on Account (after update) {\n    for (Account acc : Trigger.new) {\n        List<Contact> contacts = [SELECT Id FROM Contact WHERE AccountId = :acc.Id];\n        for (Contact c : contacts) {\n            c.Description = 'Account updated';\n            update c;\n        }\n    }\n}"
+  }
+]

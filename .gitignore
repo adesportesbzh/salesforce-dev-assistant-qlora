@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model artifacts (large binary files — keep out of git)
+models/
+*.gguf
+*.safetensors
+*.bin
+
+# Data (raw/generated datasets can be large; keep samples only)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Eval outputs
+eval/results/*.json
+eval/results/*.csv
+!eval/results/comparison.json
+
+# OS / editor
+.DS_Store
+.vscode/
+
+# Internal process docs — kept locally for personal reference / blog writeup,
+# not part of the public repo
+architecture/
+docs/
+demo/
+README copy.md

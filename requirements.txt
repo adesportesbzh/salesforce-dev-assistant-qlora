@@ -1,0 +1,12 @@
+# Local development dependencies (data prep, demo, eval orchestration)
+# Training-specific deps (transformers/peft/bitsandbytes/trl) live in
+# requirements-colab.txt since training runs on a Colab/Kaggle GPU.
+
+datasets>=2.19
+pandas>=2.2
+jsonlines>=4.0
+python-dotenv>=1.0
+gradio>=4.30
+ollama>=0.2
+tqdm>=4.66
+pytest>=8.2
